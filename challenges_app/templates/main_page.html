@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style_main.css' %}">
+
+</head>
+
+<body>
+
+    <!-- <a href="/main_page">Placeholder for Home icon</a>
+    <a href="#">Placeholder for User Icon</a> -->
+    <div class="header">
+        <ul>
+            <li><a href="/users/profile/{{current_user.id}}">Profile<a></li>
+            <li><a href="/challenges">Challenges<a></li>
+        </ul>
+    </div>
+    <h1>Today's Task</h1>
+    <label>Sun<input type="radio" name="day" value="sun"></label>
+    <label>Mon<input type="radio" name="day" value="mon"></label>
+    <label>Tues<input type="radio" name="day" value="tues"></label>
+    <label>Wed<input type="radio" name="day" value="wed"></label>
+    <label>Thurs<input type="radio" name="day" value="thurs"></label>
+    <label>Fri<input type="radio" name="day" value="fri"></label>
+    <label>Sat<input type="radio" name="day" value="sat"></label>
+    <a href="/users/logout">Logout</a>
+</body>
+
+</html>

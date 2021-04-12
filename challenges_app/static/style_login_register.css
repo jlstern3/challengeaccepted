@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#register, #login{
+    padding: 20px;
+}
+
+#register h1, #login h1{
+    padding-bottom: 20px;
+    font-weight: none;
+}
+
+#register label, #login label{
+    display: block;
+    margin-bottom: 10px;
+}
+
+button{
+    box-shadow: 2px 3px black;
+    text-align: center;
+    padding: 2px 4px;
+    border: 1px solid black;
+    border-radius: 5%;
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style_login_register.css' %}">
+
+</head>
+
+<body>
+    <div id="login">
+        <h1>Sign into your account</h1>
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{message}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <form action="/users/login" method="POST">
+            {% csrf_token %}
+            <label>Email  <input type=text name="email"></label>
+            <label>Password  <input type=password name="password"></label>
+            <button type="submit" value="Sign In">Sign In</button>
+        </form>
+    </div>
+    <a href="/users/register">New user? Click here</a>
+</body>
+
+</html>

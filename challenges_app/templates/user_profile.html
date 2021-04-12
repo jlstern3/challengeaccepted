@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+</head>
+<body>
+    <div class = "header">
+        <a href="/main_page">Main Page</a>
+        <a href="/challenges">Challenges</a>
+    </div>
+    <h1>{{current_user.first_name}} {{current_user.last_name}}</h1>
+    <h3>Fitness Goals: {{current_user.goals}}</h3>
+    <h3>Motivating Quote: {{current_user.quote}}</h3>
+    <h3>Age: {{current_user.age}}</h3>
+    <h3>Location: {{current_user.location}}</h3>
+    <a href="/users/profile/{{current_user.id}}/edit">Edit Profile</a>
+<hr>
+    <h1>Current Challenges</h1>
+    {% for challenge in current_user.challenges_accepted.all %}
+    <ul>
+        <li>{{challenge.name}}</li>
+    </ul>
+    {% endfor %}
+    <a href="/challenges">Find New Challenge</a>
+<hr>
+    <h1>Challenges Completed</h1>
+    <!-- {% for challenge in all_challenges %}
+    <li>{{challenge.name}}</li>
+    {% endfor %} -->
+    <a href="/users/logout">Logout</a>
+</body>
+</html>

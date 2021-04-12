@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.header ul{ 
+    list-style-type:none;
+    display: inline-block;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 30px;
+    /* vertical-align: left; */
+    font-size: 14pt;
+}
+
+.header ul li a{
+    text-decoration:none;
+}
+
+button{
+    box-shadow: 2px 3px black;
+    text-align: center;
+    padding: 2px 4px;
+    border: 1px solid black;
+}
