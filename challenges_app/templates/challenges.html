@@ -6,21 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <!-- ICONS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
     <title>Challenges</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style_main.css' %}">
 </head>
 
 <body>
+    <a href="/main_page"><i class="bi-house-door-fill" style="font-size: 2rem; color: black"></i></a>
+    <a href="/users/profile/{{current_user.id}}"><i class="bi-person-circle"
+            style="font-size: 2rem; color: black"></i></a>
     <a href="/users/logout">Logout</a>
-    <a href="/main_page"><img src="challenges_app/images/home_icon.png" alt="Home"></a>
-    <a href="/users/profile/{{current_user.id}}"><img src="challenges_app/images/user_icon.png" alt="User Profile"></a>
     <form id="challenge_search" method="POST">
         {% csrf_token %}
-        <input id = "searchbar" type="text" name="search">
+        <input id="searchbar" type="text" name="search" placeholder="Search Challenges">
     </form>
     <p id="csrf" csrf={{csrf_token}}></p>
     <div id="search_results"></div>
-    <!-- <img src="challenges_app/images/static_plank.jpg" alt="static plank"> -->
+    <hr>
     {% for challenge in all_challenges %}
     <h3>{{challenge.name}}</h3>
     <p>Target Area: {{challenge.target_area}}</p>
@@ -28,7 +35,6 @@
     <p>Daily Increase: {{challenge.daily_increase}}</p>
     <p>Max Reps: {{challenge.max_reps}}</p>
     <p><a href="/challenges/details/{{challenge.id}}">View Challenge Details</a></p>
-    <p>
     <form action="challenges/accept/{{challenge.id}}" method="POST">
         {% csrf_token %}
         <button id="accept_challenge" type="submit" value="Accept Challenge">Accept Challenge</button>
@@ -36,20 +42,23 @@
     </p>
     <hr>
     {% endfor %}
+    <!-- BOOTSTRAP BUNDLE -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
+    <!-- JQUERY/AJAX -->
     <script>
-        $('#accept_challenge').click(function(){
+        $('#accept_challenge').click(function () {
             $('#accept_challenge').html("<p>Challenge Accepted</p>");
         })
         $('#challenge_search').keyup(function () {
-            var challenge_search= $('#searchbar').val()
+            var challenge_search = $('#searchbar').val()
             var csrf = $('#csrf').attr("csrf")
-            // console.log(user_search)
             $.ajax({
                 url: "/challenge_search",
                 method: "post",
                 data: { 'challenge_search': challenge_search, 'csrfmiddlewaretoken': csrf },
                 success: function (serverResponse) {
-                    console.log("This is the server's response:" + serverResponse);
                     $('#search_results').html(serverResponse);
                 }
             })

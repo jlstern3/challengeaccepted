@@ -62,12 +62,20 @@ def user_profile(request, user_id):
 def edit_profile(request, user_id):
     if 'user_id' not in request.session: 
         return redirect('/')
+    else: 
+        context={
+            'current_user' : User.objects.get(id=user_id),
+        }
+        return render(request, "edit_profile.html", context)  
+    
+def update_profile(request, user_id): 
     if request.method =="POST":
         errors = User.objects.edit_validator(request.POST, user_id)
         if len(errors) > 0:
             for key, value in errors.items():
                 messages.error(request, value)
             return redirect(f'/users/profile/{user_id}/edit')    
+            # instead of redirect, I want to extract form data into dictionary, send through context via render
         else:
             current_user = User.objects.get(id=user_id)
             current_user.first_name=request.POST['first_name']
@@ -79,12 +87,8 @@ def edit_profile(request, user_id):
             current_user.quote=request.POST['quote']
             current_user.save()
             messages.success(request, "You successfully updated your account.")    
-            return redirect(f'/users/profile/{user_id}')
-    else: 
-        context={
-            'current_user' : User.objects.get(id=user_id),
-        }
-        return render(request, "edit_profile.html", context)  
+        return redirect(f'/users/profile/{user_id}')
+
 
 def challenges(request):
     context={
@@ -103,18 +107,25 @@ def accept_challenge(request, challenge_id):
     return redirect('/challenges')
 
 def challenge_details(request, challenge_id):
+    challenge = Challenge.objects.get(id=challenge_id)
+    count = challenge.starting_at
+    data = []
+    for idx in range (1, 31, 1):
+        data.append(count)
+        count+=challenge.daily_increase
     context={
-        'one_challenge': Challenge.objects.get(id=challenge_id)
+        'one_challenge': Challenge.objects.get(id=challenge_id),
+        'data': data,
     }
     return render(request, "challenge_details.html", context)
 
 def challenge_search(request):
     challenge_search = request.POST['challenge_search']
-    if len(Challenge.objects.filter(name__contains = request.POST['challenge_search'])) == 0:
+    if len(Challenge.objects.filter(name__startswith = request.POST['challenge_search'])) == 0:
             return render(request, "no_results.html")
     else:
         context = {
-            'results': Challenge.objects.filter(name__contains = request.POST['challenge_search'])
+            'results': Challenge.objects.filter(name__startswith = request.POST['challenge_search'])
         }
     return render(request, "search_results.html", context)
 

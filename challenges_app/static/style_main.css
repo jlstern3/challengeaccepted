@@ -22,3 +22,11 @@ button{
     padding: 2px 4px;
     border: 1px solid black;
 }
+
+.error{
+    color: red;
+}
+
+.success{
+    color: green;
+}
