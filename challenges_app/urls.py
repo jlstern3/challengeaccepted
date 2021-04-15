@@ -12,6 +12,7 @@ urlpatterns = [
     path('users/profile/<int:user_id>/edit', views.edit_profile),
     path('users/profile/<int:user_id>/update', views.update_profile),
     path('challenges', views.challenges),
+    path('checked_box', views.checked_box),
     path('challenges/accept/<int:challenge_id>', views.accept_challenge),
     path('challenge_search', views.challenge_search),
     path('challenges/details/<int:challenge_id>', views.challenge_details),

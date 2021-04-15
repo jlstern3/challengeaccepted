@@ -10,39 +10,84 @@
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <!-- ICONS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <!-- JQUERY -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <title>Challenge Details</title>
     {% load static %}
 </head>
 
 <body>
-    <a href="/challenges"><i class="bi-arrow-left-circle" style="font-size: 2rem; color: black"></i></a>
-    <h1>{{one_challenge.name}}</h1>
-    <p>Description: {{one_challenge.description}}</p>
-    <p>Target Area: {{one_challenge.target_area}}</p>
-    <p>Starting At: {{one_challenge.starting_at}}</p>
-    <p>Daily Increase: {{one_challenge.daily_increase}}</p>
-    <p>Max Reps: {{one_challenge.max_reps}}</p>
-    <table>
-        <thead>
-            <tr>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            
-            {% for idx in data %}
-            <tr>
-                <td>{{forloop.counter}} {{idx}} {{one_challenge.unit_measure}}</td>
-                {{data[idx]|add:"1"}}
-                <td>{{forloop.counter}} {{idx}} {{one_challenge.unit_measure}}</td>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <!-- MAKE CONTAINER-FLUID to change location of navbar as screen widens/shrinks -->
+        <div class="container">
+            <h2 class="navbar-brand">Challenge Accepted</h2>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/main_page">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/challenges">Challenges</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page"
+                            href="/users/profile/{{current_user.id}}">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/users/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- <a href="/challenges"><i class="bi-arrow-left-circle" style="font-size: 2rem; color: black"></i></a> -->
+    <div class="containter" style="margin: 60px;">
+        <h1>{{one_challenge.name}}</h1>
+        <p>Description: {{one_challenge.description}}</p>
+        <p>Target Area: {{one_challenge.target_area}}</p>
+        <p>Starting At: {{one_challenge.starting_at}}</p>
+        <p>Daily Increase: {{one_challenge.daily_increase}}</p>
+        <p>Max Reps: {{one_challenge.max_reps}}</p>
+    </div>
+    <div class="container">
+        <div class="row row-cols-7" style="padding: 20px;">
+            <table>
+                {% for idx in data %}
+                <div class="col">
+                    <ul style="list-style-type: none;">
+                        <li><span style="font-weight: bold;">Day {{forloop.counter}}:</span> {{idx}} {{one_challenge.unit_measure}}</td>
+                            <label><input class="form-check-input" type="checkbox" name="done" value="Done"></label>
 
-            </tr>
-            {% endfor %}
-        </tbody>
-        
-    </table>
+                        <hr>
+                    </ul>
+                </div>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
     <a href="/users/logout">Logout</a>
+    <!-- <script>
+        // TRYING TO GET CHECKBOX TO STAY CHECKED
+        $('.form-check-input').click(function(){
+            console.log("click registered")
+            $.ajax({
+                url: "/checked_box",
+                method: "get",
+                // data: { 'challenge_search': challenge_search, 'csrfmiddlewaretoken': csrf },
+                success: function (serverResponse) {
+                    $('.form-check-input').html(serverResponse);
+                    console.log("You did something right")
+                }
+            })
+        })
+        
+    </script> -->
 </body>
 
 </html>

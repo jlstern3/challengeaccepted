@@ -67,7 +67,9 @@ def edit_profile(request, user_id):
             'current_user' : User.objects.get(id=user_id),
         }
         return render(request, "edit_profile.html", context)  
-    
+
+def checked_box(request):
+    return render (request, "checked_box.html")
 def update_profile(request, user_id): 
     if request.method =="POST":
         errors = User.objects.edit_validator(request.POST, user_id)

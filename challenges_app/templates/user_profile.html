@@ -13,10 +13,38 @@
     {% load static %}
 </head>
 <body>
-    <div class = "page-header">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <!-- MAKE CONTAINER-FLUID to change location of navbar as screen widens/shrinks -->
+        <div class="container">
+            <h2 class="navbar-brand">Challenge Accepted</h2>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/main_page">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/challenges">Challenges</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page"
+                            href="/users/profile/{{current_user.id}}">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/users/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- <div class = "page-header">
         <a href="/main_page"><i class="bi-house-door-fill" style="font-size: 2rem; color: black"></i></a>
         <a href="/challenges"><i class="bi-earbuds" style="font-size: 2rem; color: black"></i></a>
-    </div>
+    </div> -->
     <h1>{{current_user.first_name}} {{current_user.last_name}}</h1>
     <h3>Fitness Goals: {{current_user.goals}}</h3>
     <h3>Motivating Quote: {{current_user.quote}}</h3>
