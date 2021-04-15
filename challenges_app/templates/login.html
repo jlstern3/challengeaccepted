@@ -10,7 +10,8 @@
     <title>Login</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'style_login_register.css' %}">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill"
         viewBox="0 0 16 16">
         <path
@@ -31,7 +32,20 @@
 </head>
 
 <body>
-    <div class="container">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <!-- MAKE CONTAINER-FLUID to change location of navbar as screen widens/shrinks -->
+        <div class="container">
+            <h2 class="navbar-brand">Challenge Accepted</h2>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        </div>
+    </nav>
+    <div class="container"
+        style="background-color: lightgrey; max-width: 60%; padding-top: 6%; padding-bottom: 6%; margin-top: 3%;">
         <div class="page-header">
             <div class="text-center">
                 <div id="login">
@@ -44,15 +58,17 @@
                     {% endfor %}
                 </ul>
                 {% endif %}
-                <form action="/users/login" method="POST">
+                <form action="/users/login" method="POST" style="padding-bottom: 2.5%;">
                     {% csrf_token %}
                     <label>Email <input type=text name="email"></label>
+                    <!-- style="display:block;" to get inputs on top of each other -->
                     <label>Password <input type=password name="password"></label>
-                    <button class="btn btn-default" type="submit" value="Sign In">Sign In</button>
+                    <button style="background-color: white;" class="btn btn-default" type="submit" value="Sign In">Sign
+                        In</button>
                 </form>
+                <a href="/users/register" style="font-size: larger;">New user? Click here</a>
             </div>
         </div>
-        <a href="/users/register">New user? Click here</a>
     </div>
 </body>
 

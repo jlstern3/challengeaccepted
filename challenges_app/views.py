@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import *
+from .models import User, Challenge
 import bcrypt
 from django.contrib import messages
 from django.db.models import Count
