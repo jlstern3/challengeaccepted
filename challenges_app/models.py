@@ -60,6 +60,8 @@ class Challenge(models.Model):
     unit_measure = models.TextField(null = True)
     max_reps = models.TextField()
     users_accepted = models.ManyToManyField(User, related_name="challenges_accepted")
+    users_completed = models.ManyToManyField(User, related_name="challenges_completed")
+
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     # objects = ChallengeManager()
