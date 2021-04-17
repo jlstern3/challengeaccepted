@@ -124,6 +124,8 @@ def challenge_details(request, challenge_id):
 
 def challenge_search(request):
     challenge_search = request.POST['challenge_search']
+    if len(challenge_search) == 0:
+        return render(request, "blank.html")
     if len(Challenge.objects.filter(name__startswith = request.POST['challenge_search'])) == 0:
             return render(request, "no_results.html")
     else:

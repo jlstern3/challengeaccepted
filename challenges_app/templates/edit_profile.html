@@ -40,15 +40,6 @@
                         <a class="nav-link" aria-current="page" href="/users/logout">Logout</a>
                     </li>
                 </ul>
-                <form class="d-flex" id="challenge_search" method="POST">
-                    {% csrf_token %}
-                    <input class="form-control me-2" id="searchbar" type="text" name="search"
-                        placeholder="Search Challenges">
-                </form>
-                <!-- <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form> -->
             </div>
         </div>
     </nav>
@@ -72,7 +63,7 @@
             <label>Location<input type=text name='location' value="{{current_user.location}}"></label>
             <label>Fitness Goals<input type=text name='goals' value="{{current_user.goals}}"></label>
             <label>Motivating Quote<input type=text name='quote' value="{{current_user.quote}}"></label>
-            <button type="submit" value="Update Profile">Update Profile</button>
+            <button class = "btn btn-primary btn-md; box-shadow: 5px 5px grey;" type="submit" value="Update Profile">Update Profile</button>
         </form>
     </div>
 </body>

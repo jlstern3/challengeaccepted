@@ -30,3 +30,22 @@ button{
 .success{
     color: green;
 }
+
+#main_page_container{
+    background-image: url("/static/images/C_A_background_image.jpg");
+    max-width: 60%; 
+    padding-top: 6%; 
+    padding-bottom: 6%; 
+    margin-top: 3%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.5;
+    /* background: rgba(0, 0, 0, 0.3); */
+    filter: grayscale(100%);
+    color: black;
+}
+
+/* #black_text{
+    color: black !important;
+    opacity: 1 !important;
+} */
