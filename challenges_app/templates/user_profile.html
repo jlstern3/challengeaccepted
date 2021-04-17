@@ -47,7 +47,7 @@
         <a href="/main_page"><i class="bi-house-door-fill" style="font-size: 2rem; color: black"></i></a>
         <a href="/challenges"><i class="bi-earbuds" style="font-size: 2rem; color: black"></i></a>
     </div> -->
-    <div class="container" style="padding-top: 3%;">
+    <div class="container" style="padding-top: 2%;">
         <h1 style="margin-bottom: 3%"><a href="/challenges"><i class="bi-arrow-left-circle"
                     style="font-size: 2rem; color: black"></i></a>
             {{current_user.first_name}} {{current_user.last_name}}</h1>
@@ -61,10 +61,10 @@
 
     <hr>
     <div class="container">
-        <h1>Current Challenges</h1>
+        <h1 style="padding-bottom: 2%;">Current Challenges</h1>
         {% for challenge in current_user.challenges_accepted.all %}
         <ul style="display: inline-block;">
-            <li style="list-style-type: none; border: 2px solid black; border-radius: 50%; width: 8em; line-height: 8em; text-align: center;">{{challenge.name}}</li>
+            <a href="/challenges/details/{{challenge.id}}"><li style="list-style-type: none; border: 2px solid black; border-radius: 50%; width: 8em; line-height: 8em; text-align: center; box-shadow: 7px 7px grey;">{{challenge.name}}</li></a>
         </ul>
         {% endfor %}
         <!-- <a style="display: block;" href="/challenges">Find New Challenge</a> -->
