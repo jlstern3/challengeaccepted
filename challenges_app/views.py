@@ -107,7 +107,7 @@ def accept_challenge(request, challenge_id):
         current_user = User.objects.get(id = request.session['user_id'])
         one_challenge = Challenge.objects.get(id = challenge_id)
         current_user.challenges_accepted.add(one_challenge)
-    return redirect("/challenges")
+    return redirect(f'/users/profile/{current_user.id}')
 
 def remove_challenge(request, challenge_id):
     if 'user_id' not in request.session: 

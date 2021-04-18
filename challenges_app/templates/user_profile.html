@@ -62,18 +62,18 @@
 
 
     <div class="container">
-        <h1 style="padding-bottom: 2%;">Current Challenges</h1>
+        <h1 style="padding-bottom: 1%;">Current Challenges</h1>
         {% for challenge in current_user.challenges_accepted.all %}
         <ul style="display: inline-block;">
+            <form action="/challenges/remove/{{challenge.id}}" method="POST">
+                {% csrf_token %}
+                <button type="submit" value="Remove Challenge" style="border: none; background-color: transparent;"><i class="bi-x-circle"></i></button>
+            </form>
             <a href="/challenges/details/{{challenge.id}}" style="text-decoration: none;">
                 <li
                     style="list-style-type: none; border: 2px solid black; border-radius: 50%; width: 8em; line-height: 8em; text-align: center; box-shadow: 7px 7px grey;">
                     {{challenge.name}}</li>
             </a>
-            <form action="/challenges/remove/{{challenge.id}}" method="POST">
-                {% csrf_token %}
-                <button type="submit" value="Remove Challenge">Remove Challenge</button>
-            </form>
         </ul>
         {% endfor %}
         <!-- <a style="display: block;" href="/challenges">Find New Challenge</a> -->
