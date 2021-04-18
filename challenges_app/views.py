@@ -107,7 +107,16 @@ def accept_challenge(request, challenge_id):
         current_user = User.objects.get(id = request.session['user_id'])
         one_challenge = Challenge.objects.get(id = challenge_id)
         current_user.challenges_accepted.add(one_challenge)
-    return redirect('/challenges')
+    return redirect("/challenges")
+
+def remove_challenge(request, challenge_id):
+    if 'user_id' not in request.session: 
+        return redirect('/')
+    if request.method == "POST":
+        current_user = User.objects.get(id=request.session['user_id'])
+        remove_challenge = Challenge.objects.get(id=challenge_id)
+        current_user.challenges_accepted.remove(remove_challenge)
+    return redirect(f'/users/profile/{current_user.id}')
 
 def challenge_details(request, challenge_id):
     challenge = Challenge.objects.get(id=challenge_id)
@@ -117,6 +126,7 @@ def challenge_details(request, challenge_id):
         data.append(count)
         count+=challenge.daily_increase
     context={
+        'current_user' : User.objects.get(id = request.session['user_id']),
         'one_challenge': Challenge.objects.get(id=challenge_id),
         'data': data,
     }

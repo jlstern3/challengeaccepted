@@ -12,13 +12,13 @@
     <!-- ICONS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
     <title>Challenges</title>
+    <!-- CSS -->
     {% load static %}
     <link rel="stylesheet" href="{% static 'style_main.css' %}">
 </head>
 
 <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-        <!-- MAKE CONTAINER-FLUID to change location of navbar as screen widens/shrinks -->
         <div class="container">
             <h2 class="navbar-brand">Challenge Accepted</h2>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -37,7 +37,6 @@
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="/users/profile/{{current_user.id}}">Profile</a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="/users/logout">Logout</a>
                     </li>
@@ -54,57 +53,46 @@
         <div class="row">
             <div class="col-sm-8">
                 <h2 style="margin-top: 3%;"><a href="/main_page"><i class="bi-arrow-left-circle"
-                    style="font-size: 2rem; color: black"></i></a> 30-Day Workout Challenges</h2>
+                            style="font-size: 2rem; color: black"></i></a> 30-Day Workout Challenges</h2>
             </div>
             <div class="col-sm-4" style="justify-content: left;">
                 <p id="csrf" csrf={{csrf_token}}></p>
                 <div id="search_results" style="margin-left: 10em;"></div>
             </div>
         </div>
+        <hr>
     </div>
-    <hr>
+
     <div class="container">
         {% for challenge in all_challenges %}
         <div class="row">
             <div class="col-sm-4">
-                <a href="/challenges/details/{{challenge.id}}" style="text-decoration: none; color: black;"><h3
-                    style="list-style-type: none; border: 2px solid black; border-radius: 50%; width: 6em; line-height: 6em; text-align: center; box-shadow: 7px 7px grey; margin-bottom: 5%;">
-                    {{challenge.name}}</h3></a>
+                <a href="/challenges/details/{{challenge.id}}" style="text-decoration: none; color: black;">
+                    <h3
+                        style="list-style-type: none; border: 2px solid black; border-radius: 50%; width: 6em; line-height: 6em; text-align: center; box-shadow: 7px 7px grey; margin-bottom: 5%;">
+                        {{challenge.name}}</h3>
+                </a>
                 <p><a href="/challenges/details/{{challenge.id}}">View Challenge Details</a></p>
 
             </div>
             <div class="col-sm-4" style="justify-content: left; margin-left: -11%;">
                 <p><span style="font-weight: bold; font-size: larger;">Target Area: </span>{{challenge.target_area}}</p>
-                <p><span style="font-weight: bold; font-size: larger;">Starting At: </span>{{challenge.starting_at}} {{challenge.unit_measure}}</p>
+                <p><span style="font-weight: bold; font-size: larger;">Starting At: </span>{{challenge.starting_at}}
+                    {{challenge.unit_measure}}</p>
                 <p><span style="font-weight: bold; font-size: larger;">Daily Increase:
                     </span>{{challenge.daily_increase}} {{challenge.unit_measure}}</p>
-                <p><span style="font-weight: bold; font-size: larger;">Max Reps: </span>{{challenge.max_reps}} {{challenge.unit_measure}}</p>
+                <p><span style="font-weight: bold; font-size: larger;">Max Reps: </span>{{challenge.max_reps}}
+                    {{challenge.unit_measure}}</p>
                 <form action="challenges/accept/{{challenge.id}}" method="POST">
                     {% csrf_token %}
-                    <button class = "btn btn-primary btn-md" id="accept_challenge" type="submit" value="Accept Challenge" style="border-radius: 5%;">Accept Challenge</button>
+                    <button class="btn btn-primary btn-md" id="accept_challenge" type="submit" value="Accept Challenge"
+                        style="border-radius: 5%;">Accept Challenge</button>
                 </form>
             </div>
         </div>
         <hr>
         {% endfor %}
     </div>
-    <!-- OPTION FOR LAYOUT -->
-    <!-- <div class="container">
-        {% for challenge in all_challenges %}
-        <h3>{{challenge.name}}</h3>
-        <p><span style="font-weight: bold; font-size: larger;">Target Area: </span>{{challenge.target_area}}</p>
-        <p><span style="font-weight: bold; font-size: larger;">Starting At: </span>{{challenge.starting_at}}</p>
-        <p><span style="font-weight: bold; font-size: larger;">Daily Increase: </span>{{challenge.daily_increase}}</p>
-        <p><span style="font-weight: bold; font-size: larger;">Max Reps: </span>{{challenge.max_reps}}</p>
-        <p><a href="/challenges/details/{{challenge.id}}">View Challenge Details</a></p>
-        <form action="challenges/accept/{{challenge.id}}" method="POST">
-            {% csrf_token %}
-            <button id="accept_challenge" type="submit" value="Accept Challenge">Accept Challenge</button>
-        </form>
-        </p>
-        <hr>
-        {% endfor %}
-    </div> -->
     <!-- BOOTSTRAP BUNDLE -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"

@@ -16,4 +16,5 @@ urlpatterns = [
     path('challenges/accept/<int:challenge_id>', views.accept_challenge),
     path('challenge_search', views.challenge_search),
     path('challenges/details/<int:challenge_id>', views.challenge_details),
+    path('challenges/remove/<int:challenge_id>', views.remove_challenge),
 ]

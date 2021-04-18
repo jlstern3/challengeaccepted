@@ -49,3 +49,12 @@ button{
     color: black !important;
     opacity: 1 !important;
 } */
+
+
+.form-group{
+    padding-bottom: 1%;
+}
+
+.form-group input{
+    align-items: left;
+}
