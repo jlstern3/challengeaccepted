@@ -32,23 +32,33 @@ button{
 }
 
 #main_page_container{
-    background-image: url("/static/images/C_A_background_image.jpg");
+    position: relative;
     max-width: 60%; 
+    max-height: 60%;
     padding-top: 6%; 
     padding-bottom: 6%; 
     margin-top: 3%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    opacity: 0.5;
-    /* background: rgba(0, 0, 0, 0.3); */
-    filter: grayscale(100%);
-    color: black;
+    /* background-repeat: no-repeat;
+    background-size: cover; */
 }
 
-/* #black_text{
-    color: black !important;
-    opacity: 1 !important;
-} */
+#main_page_container::before{
+    content: "";
+    background-image: url("/static/images/C_A_background_image.jpg");
+    filter: grayscale(100%);
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    opacity: 0.5;
+}
+#black_text{
+    position: relative;
+    color: black;
+    text-align: center;
+
+}
 
 
 .form-group{

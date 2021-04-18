@@ -83,7 +83,7 @@
                     </span>{{challenge.daily_increase}} {{challenge.unit_measure}}</p>
                 <p><span style="font-weight: bold; font-size: larger;">Max Reps: </span>{{challenge.max_reps}}
                     {{challenge.unit_measure}}</p>
-                <form action="challenges/accept/{{challenge.id}}" method="POST">
+                <form action="/challenges/accept/{{challenge.id}}" method="POST">
                     {% csrf_token %}
                     <button class="btn btn-primary btn-md" id="accept_challenge" type="submit" value="Accept Challenge"
                         style="border-radius: 5%;">Accept Challenge</button>

@@ -16,7 +16,6 @@
 
 <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-        <!-- MAKE CONTAINER-FLUID to change location of navbar as screen widens/shrinks -->
         <div class="container">
             <h2 class="navbar-brand">Challenge Accepted</h2>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -60,14 +59,13 @@
         <hr>
     </div>
 
-
     <div class="container">
         <h1 style="padding-bottom: 1%;">Current Challenges</h1>
         {% for challenge in current_user.challenges_accepted.all %}
         <ul style="display: inline-block;">
-            <form action="/challenges/remove/{{challenge.id}}" method="POST">
+            <form action="/challenges/remove_accepted/{{challenge.id}}" method="POST">
                 {% csrf_token %}
-                <button type="submit" value="Remove Challenge" style="border: none; background-color: transparent;"><i class="bi-x-circle"></i></button>
+                <button type="submit" value="Remove accepted challenge" style="border: none; background-color: transparent;"><i class="bi-x-circle"></i></button>
             </form>
             <a href="/challenges/details/{{challenge.id}}" style="text-decoration: none;">
                 <li
@@ -81,9 +79,19 @@
     </div>
     <div class="container">
         <h1>Challenges Completed</h1>
-        <!-- {% for challenge in all_challenges %}
-    <li>{{challenge.name}}</li>
-    {% endfor %} -->
+        {% for challenge in current_user.challenges_completed.all %}
+        <ul style="display: inline-block;">
+            <form action="/challenges/remove_completed/{{challenge.id}}" method="POST">
+                {% csrf_token %}
+                <button type="submit" value="Remove completed challenge" style="border: none; background-color: transparent;"><i class="bi-x-circle"></i></button>
+            </form>
+            <a href="/challenges/details/{{challenge.id}}" style="text-decoration: none;">
+                <li
+                    style="list-style-type: none; border: 2px solid black; border-radius: 50%; width: 8em; line-height: 8em; text-align: center; box-shadow: 7px 7px grey;">
+                    {{challenge.name}}</li>
+            </a>
+        </ul>
+        {% endfor %}
     </div>
 </body>
 

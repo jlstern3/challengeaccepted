@@ -19,7 +19,6 @@
 
 <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-        <!-- MAKE CONTAINER-FLUID to change location of navbar as screen widens/shrinks -->
         <div class="container">
             <h2 class="navbar-brand">Challenge Accepted</h2>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -54,9 +53,15 @@
         <p><span style="font-weight: bold; font-size: larger;">Starting At: </span>{{one_challenge.starting_at}} {{one_challenge.unit_measure}}</p>
         <p><span style="font-weight: bold; font-size: larger;">Daily Increase: </span>{{one_challenge.daily_increase}} {{one_challenge.unit_measure}}</p>
         <p><span style="font-weight: bold; font-size: larger;">Max Reps: </span>{{one_challenge.max_reps}} {{one_challenge.unit_measure}}</p>
-        <form style="padding-bottom: 3%;" action="/challenges/accept/{{challenge.id}}" method="POST">
+        <form action="/challenges/accept/{{one_challenge.id}}" method="POST" style="padding-bottom: 3%;">
             {% csrf_token %}
-            <button id="accept_challenge" class = "btn btn-primary btn-md" style="border-radius: 5%; box-shadow: 2px 3px black;" type="submit" value="Accept Challenge">Accept Challenge</button>
+            <button class="btn btn-primary btn-md" id="accept_challenge" type="submit" value="Accept Challenge"
+                style="border-radius: 5%; box-shadow: 2px 3px black;">Accept Challenge</button>
+        </form>
+        <form action="/challenges/complete/{{one_challenge.id}}" method="POST" style="padding-bottom: 3%;">
+            {% csrf_token %}
+            <button class="btn btn-primary btn-md"  type="submit" value="Challenge Complete!"
+                style="border-radius: 5%; box-shadow: 2px 3px black;">Challenge Complete!</button>
         </form>
     </div>
     <div class="container" style="border: 1px solid lightgrey;">
