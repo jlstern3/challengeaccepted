@@ -43,15 +43,16 @@ button{
 }
 
 #main_page_container::before{
-    content: "";
+    content: '';
     background-image: url("/static/images/C_A_background_image.jpg");
     filter: grayscale(100%);
     background-size: cover;
     position: absolute;
     top: 0px;
     right: 0px;
+    bottom: 0px;
     left: 0px;
-    opacity: 0.5;
+    opacity: 0.3;
 }
 #black_text{
     position: relative;

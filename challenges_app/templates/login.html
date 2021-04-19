@@ -36,16 +36,16 @@
         <!-- MAKE CONTAINER-FLUID to change location of navbar as screen widens/shrinks -->
         <div class="container">
             <h2 class="navbar-brand">Challenge Accepted</h2>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-            </button>
+            </button> -->
         </div>
         </div>
     </nav>
     <div class="container"
-        style="background-color: lightgrey; max-width: 60%; padding-top: 6%; padding-bottom: 6%; margin-top: 3%;">
+        style="max-width: 60%; margin-top: 6%;">
         <div class="page-header">
             <div class="text-center">
                 <div id="login">
@@ -60,11 +60,10 @@
                 {% endif %}
                 <form action="/users/login" method="POST" style="padding-bottom: 2.5%;">
                     {% csrf_token %}
-                    <label>Email <input type=text name="email"></label>
-                    <!-- style="display:block;" to get inputs on top of each other -->
-                    <label>Password <input type=password name="password"></label>
-                    <button style="background-color: white;" class="btn btn-default" type="submit" value="Sign In">Sign
-                        In</button>
+                    <label style="margin-right: 20px;">Email <input type=text name="email"></label>
+                    <label style="margin-right: 15px;">Password <input type=password name="password"></label>
+                    <button class="btn btn-primary btn-md" style="border-radius: 5%; box-shadow: 2px 3px black;" type="submit"
+                    value="Sign In">Sign In</button>
                 </form>
                 <a href="/users/register" style="font-size: larger;">New user? Click here</a>
             </div>

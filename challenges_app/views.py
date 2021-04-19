@@ -135,7 +135,8 @@ def challenge_complete(request, challenge_id):
         one_challenge = Challenge.objects.get(id = challenge_id)
         current_user.challenges_completed.add(one_challenge)
         if one_challenge in current_user.challenges_completed.all():
-            current_user.challenges_accepted.remove(one_challenge)
+            remove_challenge = Challenge.objects.get(id=challenge_id)
+            current_user.challenges_accepted.remove(remove_challenge)
     return redirect(f'/users/profile/{current_user.id}')
 
 def challenge_details(request, challenge_id):
