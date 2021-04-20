@@ -8,7 +8,6 @@
     display: flex;
     justify-content: space-evenly;
     margin-top: 30px;
-    /* vertical-align: left; */
     font-size: 14pt;
 }
 
@@ -38,8 +37,6 @@ button{
     padding-top: 6%; 
     padding-bottom: 6%; 
     margin-top: 3%;
-    /* background-repeat: no-repeat;
-    background-size: cover; */
 }
 
 #main_page_container::before{
@@ -52,7 +49,7 @@ button{
     right: 0px;
     bottom: 0px;
     left: 0px;
-    opacity: 0.3;
+    opacity: 0.4;
 }
 #black_text{
     position: relative;

@@ -31,7 +31,7 @@
                         <a class="nav-link" aria-current="page" href="/main_page">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/challenges">Challenges</a>
+                        <a class="nav-link" aria-current="page" href="/challenges">Challenges</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="/users/profile/{{current_user.id}}">Profile</a>
@@ -58,35 +58,41 @@
             {% csrf_token %}
             <div class="form-group row">
                 <label margin-top: 1%;>First Name <input type=text name='first_name' value="{{current_user.first_name}}"
-                        style="margin-left:63px; margin-bottom: 1%"></label>
+                        style="margin-left:63px; margin-bottom: 0.5%"></label>
             </div>
             <div class="form-group row">
                 <label>Last Name <input type=text name='last_name' value="{{current_user.last_name}}"
-                        style="margin-left: 63px; margin-bottom: 1%"></label>
+                        style="margin-left: 63px; margin-bottom: 0.5%"></label>
             </div>
             <div class="form-group row">
                 <label>Email <input type=text name='email' value="{{current_user.email}}"
-                        style="margin-left: 102px; margin-bottom: 1%"></label>
+                        style="margin-left: 102px; margin-bottom: 0.5%"></label>
             </div>
             <div class="form-group row">
-                <label>Age <input type=text name='age' value="{{current_user.age}}" style="margin-left: 112px; margin-bottom: 1%;"></label>
+                <label>Age <input type=text name='age' value="{{current_user.age}}"
+                        style="margin-left: 112px; margin-bottom: 0.5%;"></label>
             </div>
             <div class="form-group row">
                 <label>Location <input type=text name='location' value="{{current_user.location}}"
-                        style="margin-left: 78px; margin-bottom: 1%"></label>
+                        style="margin-left: 78px; margin-bottom: 0.5%"></label>
             </div>
             <div class="form-group row">
                 <label>Fitness Goals <input type=text name='goals' value="{{current_user.goals}}"
-                        style="margin-left: 44px; margin-bottom: 1%"></label>
+                        style="margin-left: 44px; margin-bottom: 0.5%"></label>
             </div>
             <div class="form-group row">
-                <label>Motivating Quote <input type=text name='quote' value="{{current_user.quote}}" style="margin-left: 17px; margin-bottom: 3%"></label>
+                <label>Motivating Quote <input type=text name='quote' value="{{current_user.quote}}"
+                        style="margin-left: 17px; margin-bottom: 2%"></label>
             </div>
             <button class="btn btn-primary btn-md" style="border-radius: 5%; box-shadow: 2px 3px black;" type="submit"
                 value="Update Profile">Update Profile</button>
 
         </form>
     </div>
+    <!-- BOOTSTRAP BUNDLE -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

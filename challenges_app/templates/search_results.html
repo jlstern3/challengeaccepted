@@ -1,5 +1,7 @@
 <div id="search_results">
     {% for result in results.all %}
-    <p class="success">{{result.name}}</p>
+    <a href="/challenges/details/{{result.id}}" style="text-decoration: none; color: black;">
+        <p class="success">{{result.name}}</p>
+    </a>
     {% endfor %}
 </div>

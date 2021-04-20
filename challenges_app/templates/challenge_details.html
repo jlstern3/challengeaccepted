@@ -56,61 +56,40 @@
             {{one_challenge.unit_measure}}</p>
         <p><span style="font-weight: bold; font-size: larger;">Max Reps: </span>{{one_challenge.max_reps}}
             {{one_challenge.unit_measure}}</p>
-            <form action="/challenges/accept/{{one_challenge.id}}" method="POST" style="padding-bottom: 3%;">
-                {% csrf_token %}
-                <button class="btn btn-primary btn-md" id="accept_challenge" type="submit" value="Accept Challenge"
-                    style="border-radius: 5%; box-shadow: 2px 3px black;">Accept Challenge</button>
-            </form>
-            <form action="/challenges/complete/{{one_challenge.id}}" method="POST" style="padding-bottom: 3%;">
-                {% csrf_token %}
-                <button class="btn btn-primary btn-md"  type="submit" value="Challenge Complete!"
-                    style="border-radius: 5%; box-shadow: 2px 3px black;">Challenge Complete!</button>
-            </form>
+        <form action="/challenges/accept/{{one_challenge.id}}" method="POST" style="padding-bottom: 3%;">
+            {% csrf_token %}
+            <button class="btn btn-primary btn-md" id="accept_challenge" type="submit" value="Accept Challenge"
+                style="border-radius: 5%; box-shadow: 2px 3px black;">Accept Challenge</button>
+        </form>
+        <form action="/challenges/complete/{{one_challenge.id}}" method="POST" style="padding-bottom: 3%;">
+            {% csrf_token %}
+            <button class="btn btn-primary btn-md" type="submit" value="Challenge Complete!"
+                style="border-radius: 5%; box-shadow: 2px 3px black;">Challenge Complete!</button>
+        </form>
+    </div>
+    </div>
+    <div class="container" style="border: 1px solid lightgrey;">
+        <div class="row row-cols-7 w-100" style="padding: 1.25000em;">
+            <table>
+                {% for idx in data %}
+                <div class="col">
+                    <ul style="list-style-type: none;">
+                        <li><span style="font-weight: bold;">Day {{forloop.counter}}:</span> {{idx}}
+                            {{one_challenge.unit_measure}}</td>
+                            <label><input class="form-check-input" type="checkbox" name="done" value="Done"></label>
+
+                            <hr>
+                    </ul>
+                </div>
+                {% endfor %}
+            </table>
         </div>
     </div>
-    <!-- <div class="container">
-        <div class="row">
-            <div class="col-sm-4">
-                <form action="/challenges/accept/{{one_challenge.id}}" method="POST" style="padding-bottom: 3%;">
-                    {% csrf_token %}
-                    <button class="btn btn-primary btn-md" id="accept_challenge" type="submit" value="Accept Challenge"
-                        style="border-radius: 5%; box-shadow: 2px 3px black;">Accept
-                        Challenge</button>
-                </form>
-            </div>
-            <div class="col-sm-8" style="justify-content: left;">
-                <form action="/challenges/complete/{{one_challenge.id}}" method="POST" style="padding-bottom: 3%;">
-                    {% csrf_token %}
-                    <button class="btn btn-md" type="submit" value="Challenge Complete!"
-                        style="border: 1px solid black; box-shadow: 2px 3px black; border-radius: 5%; position: absolute; right: 140px;">Challenge
-                        Complete!</button>
-                </form>
-            </div>
-        </div> -->
-
-
-
-
-        <!-- ONE LAYOUT - BUTTONS -->
-
-        <div class="container" style="border: 1px solid lightgrey;">
-            <div class="row row-cols-7 w-100" style="padding: 1.25000em;">
-                <table>
-                    {% for idx in data %}
-                    <div class="col">
-                        <ul style="list-style-type: none;">
-                            <li><span style="font-weight: bold;">Day {{forloop.counter}}:</span> {{idx}}
-                                {{one_challenge.unit_measure}}</td>
-                                <label><input class="form-check-input" type="checkbox" name="done" value="Done"></label>
-
-                                <hr>
-                        </ul>
-                    </div>
-                    {% endfor %}
-                </table>
-            </div>
-        </div>
-        <!-- <script>
+    <!-- BOOTSTRAP BUNDLE -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
+    <!-- <script>
         // TRYING TO GET CHECKBOX TO STAY CHECKED
         $('.form-check-input').click(function(){
             console.log("click registered")

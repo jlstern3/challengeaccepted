@@ -75,7 +75,7 @@
                 <p><a href="/challenges/details/{{challenge.id}}">View Challenge Details</a></p>
 
             </div>
-            <div class="col-sm-4" style="justify-content: left; margin-left: -11%;">
+            <div class="col-sm-4" style="margin-left: -11%;">
                 <p><span style="font-weight: bold; font-size: larger;">Target Area: </span>{{challenge.target_area}}</p>
                 <p><span style="font-weight: bold; font-size: larger;">Starting At: </span>{{challenge.starting_at}}
                     {{challenge.unit_measure}}</p>
@@ -85,7 +85,7 @@
                     {{challenge.unit_measure}}</p>
                 <form action="/challenges/accept/{{challenge.id}}" method="POST">
                     {% csrf_token %}
-                    <button class="btn btn-primary btn-md" id="accept_challenge" type="submit" value="Accept Challenge"
+                    <button class="btn btn-primary btn-md accept_challenge" type="submit" value="Accept Challenge"
                         style="border-radius: 5%;">Accept Challenge</button>
                 </form>
             </div>
@@ -99,8 +99,8 @@
         crossorigin="anonymous"></script>
     <!-- JQUERY/AJAX -->
     <script>
-        $('#accept_challenge').click(function () {
-            $('#accept_challenge').html("<p>Challenge Accepted</p>");
+        $('.accept_challenge').click(function () {
+            $(this).html("<p>Challenge Accepted</p>");
         })
         $('#challenge_search').keyup(function () {
             var challenge_search = $('#searchbar').val()
