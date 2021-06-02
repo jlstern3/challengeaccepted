@@ -24,3 +24,25 @@ button{
     border: 1px solid black;
     border-radius: 5%;
 }
+
+.text-center{
+    border: 1px solid grey; 
+    padding: 4em; 
+    box-shadow: 0px 0px 21px 9px grey;
+}
+
+#login_form{
+    padding-bottom: 3%;
+}
+
+#email_label{
+    margin-right: 20px;
+}
+
+#password_label{
+    margin-right: 15px;
+}
+
+#new_user{
+    font-size: larger;
+}
