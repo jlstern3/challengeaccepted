@@ -30,7 +30,7 @@
         <div class="page-header">
             <div class="text-left">
                 <div id="register">
-                    <h1 style="margin-bottom: 2%"><a href="/"><i class="bi-arrow-left-circle" style="font-size: 2rem; color: black"></i></a>
+                    <h1><a href="/"><i class="bi-arrow-left-circle"></i></a>
                         Create a new account</h1>
                     {% if messages %}
                     <ul>
@@ -39,28 +39,28 @@
                         {% endfor %}
                     </ul>
                     {% endif %}
-                    <form action="/users/create_user" method="POST" style="padding-bottom: 3%;">
+                    <form action="/users/create_user" method="POST" id="register_form">
                         {% csrf_token %}
                         <div class="form-group row">
-                            <label margin-top: 1%;>First Name <input type=text name='first_name'
-                                    style="margin-left:63px; margin-bottom: 1%"></label>
+                            <label margin-top: 1%;>First Name <input type=text name='first_name' id="first_name_input"
+                                    ></label>
                         </div>
                         <div class="form-group row">
-                            <label>Last Name <input type=text name='last_name'
-                                    style="margin-left: 63px; margin-bottom: 1%"></label>
+                            <label>Last Name <input type=text name='last_name' id="last_name_input"
+                                    ></label>
                         </div>
                         <div class="form-group row">
-                            <label>Email <input type=text name='email'
-                                    style="margin-left: 102px; margin-bottom: 1%"></label>
+                            <label>Email <input type=text name='email' id="email_input"
+                                    ></label>
                         </div>
                         <div class="form-group row">
-                            <label>Password <input type=password name='password' style="margin-left: 73px; margin-bottom: 1%;"></label>
+                            <label>Password <input type=password name='password' id="password_input"></label>
                         </div>
                         <div class="form-group row">
-                            <label>Re-enter Password <input type=password name='password_conf'
-                                    style="margin-left: 7px; margin-bottom: 1%"></label>
+                            <label>Re-enter Password <input type=password name='password_conf' id="password_conf_input"
+                                    ></label>
                         </div>
-                        <button class="btn btn-primary btn-md" style="border-radius: 5%; box-shadow: 2px 3px black; margin-top: 2%;" type="submit"
+                        <button class="btn btn-primary btn-md" id="create_account" type="submit"
                             value="Create Account">Create Account</button>
                     </form>
                 </div>
