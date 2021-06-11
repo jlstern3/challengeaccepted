@@ -57,6 +57,8 @@
 
     <div class="container">
         <h1 style="padding-bottom: 1%;">Current Challenges</h1>
+        <!-- <textarea type="hidden" style="height: 300px; border: 2px solid red;"> -->
+
         {% for challenge in current_user.challenges_accepted.all %}
         <ul style="display: inline-block;">
             <form action="/challenges/remove_accepted/{{challenge.id}}" method="POST">
@@ -71,6 +73,8 @@
             </a>
         </ul>
         {% endfor %}
+        <!-- </textarea> -->
+
         <hr>
     </div>
     <div class="container">
