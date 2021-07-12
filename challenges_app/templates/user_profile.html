@@ -55,8 +55,8 @@
         <hr>
     </div>
 
-    <div class="container">
-        <h1 style="padding-bottom: 1%;">Current Challenges</h1>
+    <div class="container" style="min-height: 175px;">
+        <h1>Current Challenges</h1>
         <!-- <textarea type="hidden" style="height: 300px; border: 2px solid red;"> -->
 
         {% for challenge in current_user.challenges_accepted.all %}
@@ -75,8 +75,9 @@
         {% endfor %}
         <!-- </textarea> -->
 
-        <hr>
+
     </div>
+    <hr>
     <div class="container">
         <h1>Challenges Completed</h1>
         {% for challenge in current_user.challenges_completed.all %}
