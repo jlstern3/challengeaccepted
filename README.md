@@ -1,4 +1,3 @@
-# challengeaccepted
 <h1>Challenge Accepted</h1>
 
 <h4>Challenge Accepted is an app created for everybody -- from couch potatoes to extreme athletes alike.  This app's goal is to encourage users to stay active for a month straight, 
