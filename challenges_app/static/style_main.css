@@ -36,7 +36,7 @@ button{
     max-height: 60%;
     padding-top: 6%; 
     padding-bottom: 6%; 
-    margin-top: 3%;
+    margin-top: 3%;    
 }
 
 #main_page_container::before{
@@ -55,9 +55,7 @@ button{
     position: relative;
     color: black;
     text-align: center;
-
 }
-
 
 .form-group{
     padding-bottom: 1%;

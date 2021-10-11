@@ -46,7 +46,7 @@
     </nav>
     <div class="container" style="padding-top: 3%;">
         <h1 style="margin-bottom: 3%"><a href="/challenges"><i class="bi-arrow-left-circle"
-                    style="font-size: 2rem; color: black"></i></a>
+                    style="font-size: 2rem; color: black;"></i></a>
             {{one_challenge.name}}</h1>
         <p><span style="font-weight: bold; font-size: larger;">Description: </span>{{one_challenge.description}}</p>
         <p><span style="font-weight: bold; font-size: larger;">Target Area: </span>{{one_challenge.target_area}}</p>
@@ -77,7 +77,6 @@
                         <li><span style="font-weight: bold;">Day {{forloop.counter}}:</span> {{idx}}
                             {{one_challenge.unit_measure}}</td>
                             <label><input class="form-check-input" type="checkbox" name="done" value="Done"></label>
-
                             <hr>
                     </ul>
                 </div>
