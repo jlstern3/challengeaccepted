@@ -66,16 +66,15 @@
     <div class="container">
         {% for challenge in all_challenges %}
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-2" style="margin-right: 65px">
                 <a href="/challenges/details/{{challenge.id}}" style="text-decoration: none; color: black;">
                     <h3
                         style="list-style-type: none; border: 2px solid black; border-radius: 50%; width: 6em; line-height: 6em; text-align: center; box-shadow: 7px 7px grey; margin-bottom: 5%;">
                         {{challenge.name}}</h3>
                 </a>
                 <p><a href="/challenges/details/{{challenge.id}}">View Challenge Details</a></p>
-
             </div>
-            <div class="col-sm-4" style="margin-left: -11%;">
+            <div class="col-sm-7" style="margin-left: 10px;">
                 <p><span style="font-weight: bold; font-size: larger;">Target Area: </span>{{challenge.target_area}}</p>
                 <p><span style="font-weight: bold; font-size: larger;">Starting At: </span>{{challenge.starting_at}}
                     {{challenge.unit_measure}}</p>
