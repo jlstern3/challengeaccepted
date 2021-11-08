@@ -17,6 +17,12 @@ With an app like this, all the user has to do is commit and trust the process!</
    <li>Ultra-navigable</li>
    <li>Easy and secure logout</li>
 </ul>
-
+<hr>
 <h3>Languages/Libraries/Technologies Used:</h3>
 <p>Python | Django | AJAX | jQuery | Bootstrap | CSS | HTML5 | JavaScript | dbsqlite | Balsamiq</p>
+<hr>
+<h3>Video Demo</h3>
+
+<hr>
+<h3>Author</h3>
+<p>Jessica Stern: github.com/jlstern3</p>
