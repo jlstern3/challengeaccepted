@@ -59,6 +59,15 @@ i{
     padding-bottom: 3%;
 }
 
+div.text-center.registration_div{
+    max-width: 50%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6%;
+    padding: 1.9em;
+
+}
 #first_name_input{
     margin-left:63px; margin-bottom: 1%
 }
