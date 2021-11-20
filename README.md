@@ -4,7 +4,7 @@
 working day-by-day in manageable increments towards an ultimate fitness goal.  Challenge Accepted provides fresh monthly challenges to keep users engaged and appropriately challenged.
 With an app like this, all the user has to do is commit and trust the process!</p>
 <h3>Video Demo</h3>
-<img src="/static/images/Challenge_Accepted.gif" atl="Video Demo"/>
+<img src="/static/images/Challenge_Accepted.gif" alt="Video Demo"/>
 <hr>
 <h3>Unique Features:</h3>
 <ul>

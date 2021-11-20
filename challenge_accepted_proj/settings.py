@@ -117,5 +117,16 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,'static')
+]
 
 STATIC_URL = '/static/'
+
+#SMTP Configuration (SIMPLE MAIL TRANSFER PROTOCOL)
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'connectedoutdoors@gmail.com'
+# EMAIL_HOST_PASSWORD = 'happytrails'
